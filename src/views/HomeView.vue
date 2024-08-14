@@ -1,8 +1,7 @@
 <script setup lang="ts">
+  import Counter from '@/components/Counter.vue';
 </script>
 
 <template>
-  <main>
-    <h1 class="font-bold text-3xl text-green-400">Hello World!</h1>
-  </main>
+  <Counter />
 </template>
