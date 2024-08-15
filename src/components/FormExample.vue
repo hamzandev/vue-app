@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import Button from './Button.vue';
 
 const libs = [
@@ -12,6 +12,10 @@ const libs = [
     "preact",
     "marko",
 ]
+
+onMounted(() => {
+    console.log("FormExample component is Mounted!")
+})
 
 const inputText = ref<string>("")
 const libraries = ref<string[]>([])
