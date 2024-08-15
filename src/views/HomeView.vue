@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Awesome from '@/components/Awesome.vue';
+import ClickableText from '@/components/ClickableText.vue';
 import Counter from '@/components/Counter.vue';
 import Person from '@/components/Person.vue';
 </script>
@@ -8,4 +9,5 @@ import Person from '@/components/Person.vue';
   <Counter />
   <Person />
   <Awesome />
+  <ClickableText />
 </template>
