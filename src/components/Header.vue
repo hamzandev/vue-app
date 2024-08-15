@@ -7,6 +7,7 @@
             </div>
             <div id="menus" class="flex items-center space-x-5 text-gray-500">
                 <RouterLink to="/">Home</RouterLink>
+                <RouterLink to="/courses">Courses</RouterLink>
                 <RouterLink to="/about">About</RouterLink>
             </div>
         </div>
