@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import Button from './Button.vue';
 
 
 const count = ref<number>(0)
@@ -26,8 +27,9 @@ function decrementCounter(): void {
         <input type="number" placeholder="Type count here" v-model="inputCount"
             class="border-gray-400 mb-3 p-2 border rounded-lg focus-within:ring focus-within:ring-green-300 focus-within:outline-none">
         <div class="flex justify-center gap-1">
-            <button @click="decrementCounter" class="bg-green-500 p-3 rounded-lg text-white">Decrement</button>
-            <button @click="incrementCount" class="bg-green-500 p-3 rounded-lg text-white">Increment</button>
+            <!-- implementation of button component with $attrs binding -->
+            <Button @click="decrementCounter">Decrement</Button>
+            <Button @click="incrementCount">Increment</Button>
         </div>
     </main>
 </template>

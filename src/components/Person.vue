@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
+import Button from './Button.vue';
 
 
 const person = reactive({
@@ -36,8 +37,8 @@ const personObj = ref({
 
 function handleUpdatePerson() {
     person.fullName = personObj.value.fullName;
-    if(personObj.value.age != '') person.age = Number(personObj.value.age);
-    
+    if (personObj.value.age != '') person.age = Number(personObj.value.age);
+
     personObj.value.fullName = "";
     personObj.value.age = "";
 
@@ -55,7 +56,8 @@ function handleUpdatePerson() {
                 class="border-gray-400 mb-3 p-2 border rounded-lg focus-within:ring focus-within:ring-green-300 focus-within:outline-none">
             <input type="number" placeholder="Age" v-model="personObj.age"
                 class="border-gray-400 mb-3 p-2 border rounded-lg focus-within:ring focus-within:ring-green-300 w-16 focus-within:outline-none">
-            <button @click="handleUpdatePerson" class="bg-green-500 p-3 rounded-lg text-white">Update</button>
+            <!-- implementation of button component that use $attrs binding -->
+            <Button @click="handleUpdatePerson">Update</Button>
         </div>
     </main>
 </template>

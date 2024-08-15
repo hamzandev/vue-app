@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Button from '@/components/Button.vue';
 import { computed } from 'vue';
 
 const courses = [
@@ -55,7 +56,7 @@ const totalCourse = computed(() => courses.length)
                 <h1 class="font-bold text-2xl">VueJS Basic with scrip setup</h1>
                 <span class="font-bold text-green-500 text-lg">{{ totalCoursePrice }}</span>
                 <p class="text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, tempore!</p>
-                <button class="bg-green-500 px-3 py-2 rounded-lg text-white place-self-end">📄 See Details</button>
+                <Button class="place-self-end">📄 See Details</Button>
             </div>
         </div>
     </div>
