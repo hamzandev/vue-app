@@ -13,6 +13,7 @@ import GlobalSearch from "@/components/GlobalSearch.vue"
                 <RouterLink to="/">Home</RouterLink>
                 <RouterLink to="/courses">Courses</RouterLink>
                 <RouterLink to="/about">About</RouterLink>
+                <RouterLink to="/form">Form</RouterLink>
             </div>
             <div id="global-search" class="flex items-center w-2/12">
                 <GlobalSearch />  
