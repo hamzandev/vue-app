@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Alert from '@/components/Alert.vue';
 import Awesome from '@/components/Awesome.vue';
 import ClickableText from '@/components/ClickableText.vue';
 import Counter from '@/components/Counter.vue';
@@ -9,6 +10,26 @@ import Person from '@/components/Person.vue';
 
 <template>
   <Counter />
+
+  <Alert>
+    <template v-slot:icon>
+      <span class="text-4xl">
+        ✨
+      </span>
+    </template>
+    <template v-slot:title>
+      <span class="font-bold text-2xl">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </span>
+    </template>
+    <template v-slot:description>
+      <span class="text-gray-600">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi culpa quasi quas repellendus totam distinctio
+        alias cumque sed.
+      </span>
+    </template>
+  </Alert>
+
   <Person />
   <Awesome />
   <ClickableText />
