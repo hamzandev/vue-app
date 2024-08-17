@@ -1,16 +1,24 @@
 <script setup lang="ts">
 import Alert from '@/components/Alert.vue';
 import Awesome from '@/components/Awesome.vue';
+import Button from '@/components/Button.vue';
 import ClickableText from '@/components/ClickableText.vue';
 import Counter from '@/components/Counter.vue';
 import Framework from '@/components/Framework.vue';
 import Parent from '@/components/Parent.vue';
 import Person from '@/components/Person.vue';
+import { inject } from 'vue';
+
+const message = inject('message')
+
+function handleTriggerProvideValue() {
+  alert(message);
+}
 </script>
 
 <template>
+  <Button @click="handleTriggerProvideValue">Trigger Provide value.</Button>
   <Counter />
-
   <Alert>
     <template v-slot:icon>
       <span class="text-4xl">
