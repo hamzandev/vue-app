@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { inject, defineAsyncComponent } from 'vue';
+
 import Alert from '@/components/Alert.vue';
 import Awesome from '@/components/Awesome.vue';
 import Button from '@/components/Button.vue';
@@ -7,7 +9,17 @@ import Counter from '@/components/Counter.vue';
 import Framework from '@/components/Framework.vue';
 import Parent from '@/components/Parent.vue';
 import Person from '@/components/Person.vue';
-import { inject } from 'vue';
+import LoadingComponent from '@/components/LoadingComponent.vue';
+import ErrorComponent from '@/components/ErrorComponent.vue';
+
+/* Async component also can be used with <Suspense/> (still experimental) */
+const AsyncComponent = defineAsyncComponent({
+  loader: () => import("../components/AsyncComponent.vue"),
+  loadingComponent: LoadingComponent,
+  errorComponent: ErrorComponent,
+  delay: 1000,
+  timeout: 3000,
+})
 
 const message = inject('message')
 
@@ -17,6 +29,7 @@ function handleTriggerProvideValue() {
 </script>
 
 <template>
+  <AsyncComponent />
   <Button @click="handleTriggerProvideValue">Trigger Provide value.</Button>
   <Counter />
   <Alert>
