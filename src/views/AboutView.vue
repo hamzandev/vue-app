@@ -2,6 +2,7 @@
 import Alert from '@/components/Alert.vue';
 import Button from '@/components/Button.vue';
 import FormExample from '@/components/FormExample.vue';
+import InputField from '@/components/InputField.vue';
 import Todo from '@/components/Todo.vue';
 import { inject } from 'vue';
 
@@ -14,6 +15,9 @@ function handleTriggerProvideValue() {
 
 <template>
   <div class="flex flex-col items-center space-x-2 space-y-2 text-center">
+    <section class="mt-5">
+      <InputField placeholder="Testing vFocus custom directive" is-custom />
+    </section>
     <Alert>
       <template v-slot:icon>
         <span class="text-4xl">
@@ -33,7 +37,7 @@ function handleTriggerProvideValue() {
         </span>
       </template>
       <template v-slot:actions>
-          <button class="text-2xl">🔕</button>
+        <button class="text-2xl">🔕</button>
       </template>
     </Alert>
 
