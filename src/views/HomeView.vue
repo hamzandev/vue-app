@@ -11,6 +11,7 @@ import Parent from '@/components/Parent.vue';
 import Person from '@/components/Person.vue';
 import LoadingComponent from '@/components/LoadingComponent.vue';
 import ErrorComponent from '@/components/ErrorComponent.vue';
+import { useMouse } from '@/composable/mouse';
 
 /* Async component also can be used with <Suspense/> (still experimental) */
 const AsyncComponent = defineAsyncComponent({
@@ -26,11 +27,17 @@ const message = inject('message')
 function handleTriggerProvideValue() {
   alert(message);
 }
+
+// penggunaan composable
+const { x, y } = useMouse()
 </script>
 
 <template>
   <AsyncComponent />
   <Button @click="handleTriggerProvideValue">Trigger Provide value.</Button>
+  <span class="flex my-10 text-2xl text-green-500">
+    Mouse position is at: {{ x }}(x), {{ y }}(y)
+  </span>
   <Counter />
   <Alert>
     <template v-slot:icon>
