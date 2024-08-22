@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Button from '@/components/Button.vue';
-import { computed } from 'vue';
+import { computed, ref, Transition } from 'vue';
 
 const courses = [
     {
@@ -28,14 +28,27 @@ const courses = [
 // computed properties examples
 const totalCoursePrice = computed(() => "$" + courses.reduce((a, b) => a + b.price, 0).toString())
 const totalCourse = computed(() => courses.length)
+
+const showSummary = ref<boolean>(false)
 </script>
 
 <template>
     <div class="flex justify-between items-center mt-5">
         <h1 class="mt-5 font-bold text-3xl"> Courses</h1>
         <div class="flex flex-col items-end space-y-1">
-            <span class="font-bold text-gray-500 text-xl">Total Courses : {{ totalCourse }}</span>
-            <span class="text-green-500">Total Price : {{ totalCoursePrice }}</span>
+            <Button @click="showSummary = !showSummary" class="text-xs">
+                {{ showSummary ? 'Hide' : 'Show' }} Summary
+            </Button>
+            <Transition name="bounce">
+                <div v-if="showSummary" class="flex flex-col items-end space-y-1">
+                    <span class="font-bold text-gray-500 text-xl">
+                        Total Courses : {{ totalCourse }}
+                    </span>
+                    <span class="text-green-500">
+                        Total Price : {{ totalCoursePrice }}
+                    </span>
+                </div>
+            </Transition>
         </div>
     </div>
     <div class="gap-8 grid md:grid-cols-3 py-10">
@@ -61,3 +74,29 @@ const totalCourse = computed(() => courses.length)
         </div>
     </div>
 </template>
+
+
+/* Set the CSS animation for the Transition */
+<style scoped>
+.bounce-enter-active {
+    animation: bounce-in 0.5s;
+}
+
+.bounce-leave-active {
+    animation: bounce-in 0.5s reverse;
+}
+
+@keyframes bounce-in {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+</style>
